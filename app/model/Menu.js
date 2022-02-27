@@ -13,7 +13,7 @@ const menuSchema = new Schema(
       default: null,
     },
 
-    name: {
+    dishName: {
       ...defaults,
     },
     price: {

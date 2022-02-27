@@ -14,7 +14,7 @@ const userSchema = new Schema(
     password: {
       ...defaults,
     },
-    balance: {
+    cashBalance: {
       type: Number,
       default: 0,
     },

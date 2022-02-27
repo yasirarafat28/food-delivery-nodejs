@@ -9,7 +9,7 @@ const orderSchema = new Schema(
   {
     user: {
       type: mongoose.Schema.ObjectId,
-      ref: "Restaurent",
+      ref: "User",
       default: null,
     },
     menu: {
@@ -17,7 +17,12 @@ const orderSchema = new Schema(
       ref: "Menu",
       default: null,
     },
-    amount: {
+    restaurant: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Restaurent",
+      default: null,
+    },
+    transactionAmount: {
       type: Number,
       default: 0,
     },

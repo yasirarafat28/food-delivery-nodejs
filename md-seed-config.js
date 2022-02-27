@@ -1,23 +1,34 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
-const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/dbname';
+require("dotenv").config();
+const mongoURL = process.env.MONGODB_URL;
+
+const restaurentSeeder = require("./seeders/restaurent-seeder.seeder");
+const UserSeederSeede = require("./seeders/user-seeder.seeder");
 
 /**
  * Seeders List
  * order is important
  * @type {Object}
  */
-export const seedersList = {
-
+exports.seedersList = {
+  restaurentSeeder,
+  UserSeederSeede,
 };
 /**
  * Connect to mongodb implementation
  * @return {Promise}
  */
-export const connect = async () =>
-  await mongoose.connect(mongoURL, { useNewUrlParser: true });
+exports.connect = async () => {
+  await mongoose.connect(mongoURL, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  });
+};
 /**
  * Drop/Clear the database implementation
  * @return {Promise}
  */
-export const dropdb = async () => mongoose.connection.db.dropDatabase();
+exports.dropdb = async () => mongoose.connection.db.dropDatabase();
