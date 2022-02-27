@@ -1,0 +1,47 @@
+{
+  "name": "food-delivery-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodemon server.js",
+  "scripts": {
+    "start": "server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasirarafat28/food-delivery-nodejs.git"
+  },
+  "author": "\\",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasirarafat28/food-delivery-nodejs/issues"
+  },
+  "homepage": "https://github.com/yasirarafat28/food-delivery-nodejs#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-group-routes": "^1.1.0",
+    "express-useragent": "^1.0.15",
+    "faker": "^5.5.3",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "ip": "^1.1.5",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.15",
+    "mongoose-aggregate-paginate-v2": "^1.0.5",
+    "mongoose-data-seed": "^2.1.6",
+    "mongoose-lean-virtuals": "^0.8.1",
+    "mongoose-paginate-v2": "^1.4.2",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.20",
+    "nodemon": "^2.0.15"
+  },
+  "mdSeed": {
+    "seedersFolder": "./seeders"
+  }
+}
