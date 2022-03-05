@@ -5,8 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "start": "ts-node  server.ts",
-    "start:prod": "npm run build && node ./dist/server.js",
-    "build": "npx tsc",
+    "start:prod": "npm run build && node ./server.js",
+    "build": "npx tsc --project  ./",
     "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
