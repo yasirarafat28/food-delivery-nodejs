@@ -1,10 +1,10 @@
 const { Seeder } = require("mongoose-data-seed");
-const Restaurant = require("../app/model/Restaurant");
+const Restaurant = require("../src/app/model/Restaurant");
 
 let fileData = require("../data/users_with_purchase_history.json");
-const Menu = require("../app/model/Menu");
-const User = require("../app/model/User");
-const Order = require("../app/model/Order");
+const Menu = require("../src/app/model/Menu");
+const User = require("../src/app/model/User");
+const Order = require("../src/app/model/Order");
 
 class UserSeederSeeder extends Seeder {
   async shouldRun() {

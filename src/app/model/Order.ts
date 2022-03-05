@@ -8,10 +8,6 @@ import mongoose, {
 } from "mongoose";
 
 import aggregatePaginate from "mongoose-aggregate-paginate-v2";
-const defaults = {
-  type: String,
-  default: null,
-};
 
 interface Order extends mongoose.Document {
   transactionAmount: number;

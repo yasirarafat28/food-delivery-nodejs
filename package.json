@@ -2,11 +2,11 @@
   "name": "food-delivery-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
-    "start": "server.js",
-    "start:prod": "npm run build && node ./server.js",
-    "build": "npx tsc --project  ./",
+    "start": " ts-node ./src/main.ts",
+    "start:prod": "node ./dist/server.js",
+    "build": "tsc ",
     "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

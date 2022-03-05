@@ -8,11 +8,6 @@ import mongoose, {
 } from "mongoose";
 
 import aggregatePaginate from "mongoose-aggregate-paginate-v2";
-const defaults = {
-  type: String,
-  default: null,
-};
-
 interface Restaurant extends mongoose.Document {
   restaurantName: string;
   cashBalance: number;
@@ -21,7 +16,8 @@ interface Restaurant extends mongoose.Document {
 const restaurantSchema = new Schema(
   {
     restaurantName: {
-      ...defaults,
+      type: String,
+      default: null,
       index: true,
     },
     openingHours: {

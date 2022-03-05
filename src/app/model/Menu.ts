@@ -9,10 +9,6 @@ import mongoose, {
 } from "mongoose";
 
 import aggregatePaginate from "mongoose-aggregate-paginate-v2";
-const defaults = {
-  type: String,
-  default: null,
-};
 
 interface Menu extends mongoose.Document {
   dishName: string;
@@ -27,7 +23,8 @@ const menuSchema = new Schema(
       default: null,
     },
     dishName: {
-      ...defaults,
+      type: String,
+      default: null,
       index: true,
     },
     price: {
