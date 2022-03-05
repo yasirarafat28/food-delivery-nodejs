@@ -2,9 +2,12 @@
   "name": "food-delivery-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "nodemon server.js",
+  "main": "nodemon server.ts",
   "scripts": {
-    "start": "server",
+    "start": "ts-node  server.ts",
+    "start:prod": "npm run build && node ./dist/server.js",
+    "build": "npx tsc",
+    "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,13 +21,15 @@
   },
   "homepage": "https://github.com/yasirarafat28/food-delivery-nodejs#readme",
   "dependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/mongoose": "^5.11.97",
+    "@types/mongoose-aggregate-paginate-v2": "^1.0.3",
     "async": "^3.2.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-group-routes": "^1.1.0",
-    "express-useragent": "^1.0.15",
     "faker": "^5.5.3",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
@@ -33,13 +38,19 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mongoose": "^5.11.15",
-    "mongoose-aggregate-paginate-v2": "^1.0.5",
+    "mongoose-aggregate-paginate-v2": "^1.0.6",
     "mongoose-data-seed": "^2.1.6",
     "mongoose-lean-virtuals": "^0.8.1",
     "mongoose-paginate-v2": "^1.4.2",
-    "morgan": "^1.10.0",
     "nanoid": "^3.1.20",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.20",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.1.3"
   },
   "mdSeed": {
     "seedersFolder": "./seeders"

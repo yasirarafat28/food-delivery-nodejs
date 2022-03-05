@@ -1,14 +1,28 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
+// import { Schema, model, connect, PaginateModel } from "mongoose";
+import mongoose, {
+  Schema,
+  model,
+  PaginateOptions,
+  Types,
+  AggregatePaginateModel,
+} from "mongoose";
+
+import aggregatePaginate from "mongoose-aggregate-paginate-v2";
 const defaults = {
   type: String,
   default: null,
 };
-const restaurentSchema = new Schema(
+
+interface Restaurant extends mongoose.Document {
+  restaurantName: string;
+  cashBalance: number;
+  openingHours?: object;
+}
+const restaurantSchema = new Schema(
   {
     restaurantName: {
       ...defaults,
+      index: true,
     },
     openingHours: {
       type: Object,
@@ -17,6 +31,7 @@ const restaurentSchema = new Schema(
           start: 830,
           end: 1030,
         },
+
         tue: {
           start: 830,
           end: 1030,
@@ -53,7 +68,15 @@ const restaurentSchema = new Schema(
   }
 );
 
-restaurentSchema.plugin(aggregatePaginate);
-const Restaurent = mongoose.model("Restaurent", restaurentSchema);
+restaurantSchema.plugin(aggregatePaginate);
 
-module.exports = Restaurent;
+// restaurantSchema.index({
+//   restaurantName: "text",
+// });
+
+const RestaurantModel = model<Restaurant, AggregatePaginateModel<Restaurant>>(
+  "Restaurant",
+  restaurantSchema
+);
+
+export default RestaurantModel;

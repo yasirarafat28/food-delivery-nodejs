@@ -41,6 +41,8 @@ module.exports = {
     });
   },
   globalError(err, req, res, next) {
+
+    console.log("ssssss", err.statusCode);
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
     err.correlationId = req.headers['x-correlation-id'];
