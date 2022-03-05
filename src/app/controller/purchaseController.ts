@@ -97,6 +97,8 @@ const purchaseHistory = async (
   let data = await Order.aggregatePaginate(purchaseAggregate, options);
 
   res.json({
+    status: "success",
+    message: "Fetched successfully!",
     data,
   });
 };
