@@ -7,9 +7,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const mongoose_aggregate_paginate_v2_1 = __importDefault(require("mongoose-aggregate-paginate-v2"));
 const defaults = {
-    type: String,
-    default: null,
+  type: String,
+  default: null,
 };
+
 const restaurantSchema = new mongoose_1.Schema({
     restaurantName: Object.assign(Object.assign({}, defaults), { index: true }),
     openingHours: {
