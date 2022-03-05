@@ -1,16 +1,11 @@
 const { Seeder } = require("mongoose-data-seed");
-const Restaurant = require("../src/app/model/Restaurant");
+const Restaurant = require("../dist/app/model/Restaurant");
 
 let fileData = require("../data/restaurant_with_menu.json");
-
-const fs = require("fs");
-const Menu = require("../src/app/model/Menu");
+const Menu = require("../dist/app/model/Menu");
 class RestaurantSeederSeeder extends Seeder {
   async shouldRun() {
-    // return true;
-    return Restaurant.countDocuments()
-      .exec()
-      .then((count) => count === 0);
+    return true;
   }
 
   async run() {
@@ -28,7 +23,7 @@ class RestaurantSeederSeeder extends Seeder {
           // },
         };
 
-        let restaurent = await Restaurant.create(resData);
+        let restaurent = await Restaurant.default.create(resData);
 
         // menus
         let sss = menu.map(function (i2) {
@@ -40,7 +35,7 @@ class RestaurantSeederSeeder extends Seeder {
 
           return kkk;
         });
-        await Menu.create(sss);
+        await Menu.default.create(sss);
 
         // Open Hours
 
