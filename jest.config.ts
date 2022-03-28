@@ -6,7 +6,7 @@ const ss = {
   transform: {
     "^.+\\.ts?$": "ts-jest",
   },
-  setupFilesAfterEnv: ["jest-extended"],
+  // setupFilesAfterEnv: ["jest-extended"],
   globals: {
     "ts-jest": {
       diagnostics: false,
