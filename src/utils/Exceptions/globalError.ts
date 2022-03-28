@@ -1,14 +1,5 @@
 import express from "express";
-const sendErrorDev = (err: any, res: express.Response) => {
-  res.status(err.statusCode).json({
-    status: err.status,
-    statusCode: err.statusCode,
-    errors: err.errors,
-    message: err.message,
-    correlationId: err.correlationId,
-    stack: err.stack,
-  });
-};
+const sendErrorDev = (err: any, res: express.Response) => {};
 const globalError = (
   err: any,
   req: express.Request,
@@ -19,7 +10,14 @@ const globalError = (
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
   err.correlationId = req.headers["x-correlation-id"];
-  sendErrorDev(err, res);
+  res.status(err.statusCode).json({
+    status: err.status,
+    statusCode: err.statusCode,
+    errors: err.errors,
+    message: err.message,
+    correlationId: err.correlationId,
+    stack: err.stack,
+  });
 };
 
 export { globalError };

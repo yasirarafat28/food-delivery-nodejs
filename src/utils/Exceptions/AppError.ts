@@ -1,4 +1,7 @@
 class AppError extends Error {
+  public statusCode: number;
+  public errors: object;
+  public status: string;
   constructor(message: string, statusCode: number, errors: object = {}) {
     super(message);
     console.log(message);
@@ -14,7 +17,9 @@ class AppError extends Error {
     } else if (statusCode == 403) {
       status = "unauthorized";
     }
-
+    this.status = status;
+    this.statusCode = statusCode;
+    this.errors = errors;
     Error.captureStackTrace(this, this.constructor);
   }
 }
