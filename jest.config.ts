@@ -1,4 +1,4 @@
-const ss = {
+const jestConfig = {
   clearMocks: true,
   moduleFileExtensions: ["ts", "js"],
   roots: ["<rootDir>"],
@@ -14,4 +14,4 @@ const ss = {
   },
 };
 
-export default ss;
+export default jestConfig;
