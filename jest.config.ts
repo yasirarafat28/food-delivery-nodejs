@@ -1,7 +1,7 @@
 const jestConfig = {
   clearMocks: true,
   moduleFileExtensions: ["ts", "js"],
-  roots: ["<rootDir>"],
+  roots: ["<rootDir>/src"],
   testEnvironment: "node",
   transform: {
     "^.+\\.ts?$": "ts-jest",
